@@ -5,3 +5,7 @@ GIT :
 4. git branch -M main
 5. git remote add origin  https://github.com/codingtarun/php_netflix.git
 6. git push -u origin main
+
+SASS : 
+1. npm install node-SASS
+2. Add to package.json : 

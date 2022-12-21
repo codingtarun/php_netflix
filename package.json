@@ -1,0 +1,27 @@
+{
+  "name": "php_netflix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:tailwind": "tailwindcss -i ./src/tailwind_css.css -o ./css/style.css --watch ",
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingtarun/php_netflix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codingtarun/php_netflix/issues"
+  },
+  "homepage": "https://github.com/codingtarun/php_netflix#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
