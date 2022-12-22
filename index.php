@@ -1,9 +1,20 @@
 <?php
 include 'includes/config.php';
+include 'includes/classes/Autoload.php'; // AUTO LOADING THE REQIURED CLASSES
+include 'includes/classes/Entitity.php';
 include 'includes/partials/header.php';
 if (!isset($_SESSION['userLoggedIn'])) {
     header("location:login.php");
 }
+if (isset($_POST['logout'])) {
+    SessionHelper::logout();
+    header("location:login.php");
+}
+$username = $_SESSION['userLoggedIn'];
+
+$preview = new PreviewProvider($con, $username);
+$preview->preview(null);
+
 ?>
 
 <body>
@@ -42,7 +53,11 @@ if (!isset($_SESSION['userLoggedIn'])) {
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li>
+                                <form action="#" method="post">
+                                    <button type="submit" class="dropdown-item" name="logout" id="logout">Logout </button>
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 </ul>
