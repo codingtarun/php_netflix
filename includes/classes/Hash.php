@@ -1,5 +1,6 @@
 <?php
 
+
 class Hash
 {
     public static function make($input)

@@ -1,4 +1,6 @@
 <?php
+
+
 class InputSanitizer
 {
     public static function sanitizeInput($input) // static function don't need to initialize to call it

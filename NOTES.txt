@@ -9,3 +9,6 @@ GIT :
 SASS : 
 1. npm install node-SASS
 2. Add to package.json : 
+
+Inbuilt php serve : 
+1. php -S localhost:8000

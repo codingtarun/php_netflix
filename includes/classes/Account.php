@@ -1,4 +1,7 @@
 <?php
+
+//namespace Classes;
+
 class Account
 {
     private $con;
@@ -22,6 +25,22 @@ class Account
         return false;
     }
 
+    public function login($un, $ps)
+    {
+        $ps = Hash::make($ps);
+
+        $query = $this->con->prepare('SELECT * FROM users WHERE username = :un AND password = :ps ');
+        $query->bindValue(':un', $un);
+        $query->bindValue(':ps', $ps);
+
+        $query->execute();
+        if ($query->rowCount() == 1) {
+            return true;
+        }
+        array_push($this->errorArray, Constants::$loginFailed);
+
+        return false;
+    }
     private function store($fn, $ln, $un, $em, $ps)
     {
         $ps = Hash::make($ps);
@@ -49,7 +68,7 @@ class Account
     }
     private function validateUsername($input)
     {
-        if (strlen($input) < 2 || strlen($input) > 25) {
+        if (strlen($input) < 6 || strlen($input) > 25) {
             array_push($this->errorArray, Constants::$lastNameError);
             return; // don't execute if condition is not fullfilled
         }

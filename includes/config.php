@@ -2,7 +2,7 @@
 ob_start(); // turn on output buffering / waits until all php code is executed.
 
 session_start(); // starts the session // saving data , values in browsers / used to check if user is logged in or not
-
+print_r($_SESSION);
 date_default_timezone_set("Asia/Kolkata"); // Setting indian time zone.
 
 try {

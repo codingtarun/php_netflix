@@ -1,5 +1,7 @@
 <?php
 
+//namespace classes;
+
 class Constants
 {
     public static $firstNameError = "Your first name must bew between 2 and 25 characters";
@@ -10,13 +12,9 @@ class Constants
     public static $emailInvalid = "Invalid Email Address";
     public static $passwordMismatched = "Password Mismatched";
     public static $passwordLengthError = "Password length should be greater tha 2 words";
-
+    public static $loginFailed = "Username or Password is incorrect";
     public static function emailAlreadyExists()
     {
         return "Email Already Exists";
-    }
-    public static function validate($error)
-    {
-        return $error;
     }
 }
