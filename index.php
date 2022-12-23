@@ -12,8 +12,12 @@ if (isset($_POST['logout'])) {
 }
 $username = $_SESSION['userLoggedIn'];
 
-$preview = new PreviewProvider($con, $username);
-$preview->preview(null);
+$previewObj = new PreviewProvider($con, $username);
+$img = $previewObj->getImagePreview(null);
+$video = $previewObj->getVideoPreview(null);
+
+$objCategories = new CategoryContainers($con);
+
 
 ?>
 
@@ -64,7 +68,17 @@ $preview->preview(null);
             </div>
         </div>
     </nav>
-    HOME PAGE
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <?php echo $previewObj->getVideoPreview(null); ?>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <?php echo $objCategories->getAllCategories(); ?>
+    </div>
     <?php
     include 'includes/partials/scripts.php';
     ?>
